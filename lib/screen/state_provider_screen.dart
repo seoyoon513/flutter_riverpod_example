@@ -25,10 +25,20 @@ class StateProviderScreen extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () {
+                // update 방법 1
                 // ref.read : 버튼을 눌렀을 때 단발적으로 실행
                 ref.read(numberProvider.notifier).update((state) => state + 1);
               },
               child: Text('up'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // update 방법 2
+                // 현재 state를 가져와서 state 값을 -1씩 변경
+                ref.read(numberProvider.notifier).state =
+                ref.read(numberProvider.notifier).state -1;
+              },
+              child: Text('down'),
             ),
             ElevatedButton(
               onPressed: () {
