@@ -8,7 +8,7 @@ final multipleFutureProvider = FutureProvider<List<int>>((ref) async {
   );
 
   // 에러 발생시키기
-  throw Exception('에러입니다');
+  //throw Exception('에러입니다');
 
   return [1, 2, 3, 4, 5];
 });
