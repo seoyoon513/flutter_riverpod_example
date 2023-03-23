@@ -163,4 +163,23 @@ class GStateMultiplyProvider extends AutoDisposeProvider<int> {
     return _SystemHash.finish(hash);
   }
 }
+
+String _$gStateNotifierHash() => r'f5d3562260bad49518ffe5b82e60b7cc1b8655f2';
+
+/// StateNotifier Provider 코드 제너레이션 명시적 구현
+///
+/// Copied from [GStateNotifier].
+@ProviderFor(GStateNotifier)
+final gStateNotifierProvider =
+    AutoDisposeNotifierProvider<GStateNotifier, int>.internal(
+  GStateNotifier.new,
+  name: r'gStateNotifierProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$gStateNotifierHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$GStateNotifier = AutoDisposeNotifier<int>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

@@ -63,3 +63,22 @@ int gStateMultiply(GStateMultiplyRef ref, {
 }) {
   return number1 * number2;
 }
+
+
+/// StateNotifier Provider 코드 제너레이션 명시적 구현
+@riverpod
+class GStateNotifier extends _$GStateNotifier {
+  // 초기 상태값 지정
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state ++;
+  }
+
+  decrement() {
+    state --;
+  }
+}
