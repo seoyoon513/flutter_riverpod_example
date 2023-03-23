@@ -2,7 +2,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'code_generation_provider.g.dart';
 
-
 /**
  * riverpod_generator 쓰는 이유
  * 1) 어떤 Provider를 사용할지 고민할 필요가 없도록 해준다 (Provider, FutureProvider...)
@@ -35,11 +34,32 @@ final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
 
 // code generation을 생성하여 일반 함수처럼 작성할 수 있음 -> 직관적임
 @riverpod
-String gState(GStateRef ref) { // ref를 파라미터로 받기 위해 'G[함수 이름]Ref' 타입으로 선언
+String gState(GStateRef ref) {
+  // ref를 파라미터로 받기 위해 'G[함수 이름]Ref' 타입으로 선언
   return 'Hello Code Generation'; // 여기서 반환하는 값이 watch의 대상
 }
 // gState는 코드제너레이션을 하기 위한 함수를 정의한 것
 // 실제 watch할 provider는 g.dart에 있는 gStateProvider
 
 
+// family 예시
+class Parameter {
+  final int number1;
+  final int number2;
 
+  Parameter({
+    required this.number1,
+    required this.number2,
+  });
+}
+
+final _testFamilyProvider = Provider.family<int, Parameter>(
+        (ref, parameter) => parameter.number1 * parameter.number2);
+
+@riverpod
+int gStateMultiply(GStateMultiplyRef ref, {
+  required int number1,
+  required int number2
+}) {
+  return number1 * number2;
+}
